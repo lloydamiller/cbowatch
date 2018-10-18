@@ -28,8 +28,8 @@ def make_tweet_text(report_title, report_link):
 
     tweet_text = """%s: %s""" % (report_title, report_summary)
 
-    if len(tweet_text) > 275:
-        tweet_text = tweet_text[:270] + "..."
+    if len(tweet_text) > 240:
+        tweet_text = tweet_text[:237] + "..."
 
     tweet_with_link = tweet_text + '\n\n' + report_link
 
