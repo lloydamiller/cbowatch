@@ -45,11 +45,13 @@ if __name__ == '__main__':
                 tweets.append(tweet)
             # post new Tweet to Twitter
 
+            new_tweets = 0
             if len(new_entries) > 0:
-                print("[*] Publishing %i new tweets" % len(tweets))
+                print("[*] Publishing tweets")
                 for tweet in tweets:
-                    push_tweet(tweet)
+                    new_tweets += push_tweet(tweet)
                 last_item = new_entries[0]['link']
+                print("[*] Publishing %i new tweets" % new_tweets)
             else:
                 print("[*] No new entries to update at this time.")
             last_run = datetime.now()
