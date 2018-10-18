@@ -12,7 +12,7 @@ def push_tweet(tweet_text):
     api = tweepy.API(auth)
     try:
         api.update_status(tweet_text)
-    except ConnectionError:
+    except:
         print("[!] OH NO, ERROR POSTING TWEET: %s" % tweet_text)
 
     return
