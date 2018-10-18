@@ -13,6 +13,6 @@ def push_tweet(tweet_text):
     try:
         api.update_status(tweet_text)
         return 1
-    except tweepy.error.TweepError as e:
-        print("[!] ERROR POSTING TWEET: %s" % e[0].message)
+    except tweepy.TweepError as e:
+        print("[!] ERROR POSTING TWEET: %s" % e)
         return 0
