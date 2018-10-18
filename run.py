@@ -33,14 +33,16 @@ if __name__ == '__main__':
 
         else:
             # open RSS feed check for new items
+            print("[*] Opening RSS Feed")
             new_entries = get_new_feed_entries(last_item)
 
+            print("[*] Found %i new entries" % len(new_entries))
             # for each new item, process for Tweet Text
             tweets = []
+            print("[*] Generating tweet text")
             for new_entry in new_entries:
                 tweet = make_tweet_text(new_entry['title'], new_entry['link'])
                 tweets.append(tweet)
-
             # post new Tweet to Twitter
 
             if len(new_entries) > 0:
