@@ -26,6 +26,11 @@ def make_tweet_text(report_title, report_link):
     report_summary = report_summary.replace('\n', '')
     report_summary = report_summary.replace('\t', '')
 
-    tweet_text = """%s: %s\n\n%s""" % (report_title, report_summary, report_link)
+    tweet_text = """%s: %s""" % (report_title, report_summary)
 
-    return tweet_text
+    if len(tweet_text) > 275:
+        tweet_text = tweet_text[:270] + "..."
+
+    tweet_with_link = tweet_text + '\n\n' + report_link
+
+    return tweet_with_link
