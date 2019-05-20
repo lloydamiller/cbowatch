@@ -12,7 +12,10 @@ These functions:
 """
 
 import feedparser
+import ssl
 
+if hasattr(ssl, '_create_unverified_context'):
+    ssl._create_default_https_context = ssl._create_unverified_context
 
 feed = 'https://www.cbo.gov/publications/all/rss.xml'
 
