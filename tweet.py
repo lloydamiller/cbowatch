@@ -13,7 +13,6 @@ def push_tweet(tweet_text):
     api = tweepy.API(auth)
     try:
         api.update_status(tweet_text)
-        logging.info("Posted tweet successfully")
         return 1
     except tweepy.TweepError as e:
         logging.error("Error posting tweet: %s" % e.message)

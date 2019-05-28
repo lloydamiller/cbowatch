@@ -30,9 +30,13 @@ def main():
 
         # post new Tweet to Twitter
         new_tweets = 0
-        if len(new_entries) > 0:
+        if len(tweets) > 0:
             for tweet in tweets:
-                new_tweets += push_tweet(tweet)
+                posted_tweet = push_tweet(tweet)
+                if posted_tweet == 1:
+                    logging.info("Tweet {} of {} posted successfully".format(tweets.index(tweet)+1, len(tweets)))
+                    new_tweets += posted_tweet
+                time.sleep(300)
             last_item = new_entries[0]['link']
             logging.info("Published %i new tweets" % new_tweets)
         else:
